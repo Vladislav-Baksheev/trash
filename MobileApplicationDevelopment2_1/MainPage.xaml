@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApplicationDevelopment2_1.MainPage"
+             BackgroundColor="#79553D">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Entry Grid.Row="0" 
+               Placeholder="Поиск..." 
+               HorizontalOptions="Center" 
+               FontFamily="Helvetica"
+               FontSize="14" 
+               MaxLength ="20"/>
+
+        <ListView 
+            Grid.Row="1" 
+            HorizontalOptions="Center"
+            ItemsSource="{Binding Notes}">
+            
+        </ListView>
+        <Button
+            x:Name="AddNoteBtn"
+            Text="Add note" 
+            BackgroundColor="LightGrey"
+            TextColor="Black"
+            Clicked="ToCreateNotePage"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" 
+            Grid.Row="2"/>
+    </Grid>
+</ContentPage>

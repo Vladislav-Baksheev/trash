@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApplicationDevelopment2_1.CreateNotePage"
+             BackgroundColor="#79553D">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Entry Grid.Row="0" 
+                   Placeholder="Введите имя"  
+                   FontFamily="Helvetica"
+                   FontSize="14" 
+                   MaxLength ="20"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding Path=CurrentNote.Name, Mode=TwoWay}"/>
+            <Entry Grid.Row="1" 
+                   Placeholder="Введите Текст"  
+                   FontFamily="Helvetica"
+                   FontSize="14" 
+                   MaxLength ="20"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding Path=CurrentNote.Text, Mode=TwoWay}"/>
+            <DatePicker 
+                Format="d" 
+                Grid.Row="2" 
+                TextColor="White"
+                HorizontalOptions="Center"
+                Date="{Binding Path=CurrentNote.Date, Mode=TwoWay}">
+            </DatePicker>
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button
+                    x:Name="ApplyBtn"
+                    Text="Принять" 
+                    BackgroundColor="LightGrey"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" 
+                    Grid.Row="0"
+                    Command="{Binding Path=AddCommand, Mode=TwoWay}"
+                    Margin="5"
+                    Clicked="BackToMainPage"/>
+                <Button
+                    x:Name="CancelBtn"
+                    Text="Отменить" 
+                    BackgroundColor="LightGrey"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" 
+                    Grid.Row="1"
+                    Margin="5"
+                    Clicked="BackToMainPage"/>
+            </Grid>
+        </Grid>
+
+        
+        
+    </Grid>
+</ContentPage>
